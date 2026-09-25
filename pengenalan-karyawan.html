@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pengenalan Karyawan | Bidan Desita</title>
+  <style>
+    :root{color-scheme:light;--rose:#a74c70;--ink:#343038;--cream:#fcf8f5}
+    *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+    .top{background:#fff;border-bottom:1px solid #f0e4e8;padding:17px max(22px,calc((100vw - 1160px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .brand{font:26px Georgia,serif;color:#543b45;text-decoration:none}.brand span{color:var(--rose)}nav{display:flex;gap:24px;flex-wrap:wrap}nav a{color:#61565e;text-decoration:none;font-size:14px}nav a[aria-current]{color:var(--rose);font-weight:700}
+    main{max-width:1160px;margin:auto;padding:65px 22px 100px}.eyebrow{font-size:12px;letter-spacing:.24em;color:var(--rose);font-weight:700;text-transform:uppercase}h1{font:clamp(39px,6vw,68px)/1.08 Georgia,serif;max-width:770px;margin:12px 0 18px}h1 em{color:var(--rose);font-weight:400}p.intro{color:#786b72;max-width:650px;margin:0 0 45px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:22px}
+    .person{font:inherit;color:inherit;text-align:left;border:1px solid #f0dfe5;background:#fff;border-radius:24px;padding:12px 12px 20px;cursor:pointer;box-shadow:0 12px 40px #6c31520c;transition:transform .2s,box-shadow .2s}.person:hover{transform:translateY(-5px);box-shadow:0 18px 40px #6c315226}.person:active{transform:translateY(-1px) scale(.98)}.person:focus-visible,.close:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+    .portrait{position:relative;display:block;width:100%;height:245px;overflow:hidden;background:#f1e8ec;border-radius:17px}.portrait img{position:absolute;width:1843px;height:auto;max-width:none;left:calc(50% - var(--x));top:calc(35% - var(--y))}
+    .number{display:block;margin:16px 8px 2px;font-size:11px;letter-spacing:.19em;color:var(--rose)}.person strong{display:block;margin:0 8px;font:23px Georgia,serif}.person small{display:block;margin:4px 8px;color:#857781}.more{display:block;margin:14px 8px 0;color:var(--rose);font-size:13px;font-weight:700}
+    dialog{border:0;border-radius:24px;padding:0;max-width:min(92vw,440px);box-shadow:0 30px 90px #27171f55}dialog[open]{animation:panel-in .28s ease-out both}dialog[open]::backdrop{background:#25141bab;animation:backdrop-in .28s ease-out both}@keyframes panel-in{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes backdrop-in{from{opacity:0}to{opacity:1}}.dialog-body{padding:26px}.dialog-body h2{font:32px Georgia,serif;margin:5px 0 12px}.dialog-body p{color:#665a62;margin:0 0 18px}.close{float:right;border:0;border-radius:50%;width:35px;height:35px;background:#f7e8ee;color:#8d4060;font-size:22px;cursor:pointer}.note{color:#8a7a82;font-size:13px;margin-top:35px}
+    @media(max-width:540px){main{padding-top:44px}.portrait{height:265px}nav{gap:14px}}
+    @media(prefers-reduced-motion:reduce){.person{transition:none}dialog[open],dialog[open]::backdrop{animation:none}}
+  </style>
+</head>
+<body>
+  <header class="top"><a class="brand" href="index.html"><span>♡</span> Bidan Desita</a><nav aria-label="Menu utama"><a href="index.html">Beranda</a><a href="index.html#layanan">Layanan</a><a href="index.html#tentang">Tentang Kami</a><a href="pengenalan-karyawan.html" aria-current="page">Pengenalan Karyawan</a></nav></header>
+  <main><span class="eyebrow">Tim Bidan Desita</span><h1>Kenali orang-orang di balik <em>pelayanan kami.</em></h1><p class="intro">Ketuk foto anggota tim untuk melihat peran dan tugasnya.</p><div class="grid" id="team"></div><p class="note">Nama dan peran di bawah masih tempat pengisian. Sesuaikan dengan data resmi tim sebelum halaman diterbitkan.</p></main>
+  <dialog id="detail" aria-labelledby="detail-name"><div class="dialog-body"><button class="close" id="close" type="button" aria-label="Tutup">×</button><span class="eyebrow">Anggota tim</span><h2 id="detail-name"></h2><p id="detail-role"></p><p id="detail-duty"></p></div></dialog>
+  <script>
+    // Urutan pada foto: lima orang baris belakang (kiri ke kanan), lalu lima orang baris depan.
+    // Isi nama, peran, dan tugas sesuai identitas sebenarnya. Jangan menebak profesi dari foto.
+    const team=[
+      {x:493,y:330,nama:'Anggota Tim 01',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:633,y:340,nama:'Anggota Tim 02',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:783,y:338,nama:'Anggota Tim 03',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:925,y:310,nama:'Anggota Tim 04',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:1064,y:307,nama:'Anggota Tim 05',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:423,y:413,nama:'Anggota Tim 06',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:573,y:425,nama:'Anggota Tim 07',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:756,y:449,nama:'Anggota Tim 08',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:932,y:425,nama:'Anggota Tim 09',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'},
+      {x:1090,y:420,nama:'Anggota Tim 10',peran:'Peran belum diisi',tugas:'Tulis tugas anggota ini di sini.'}
+    ];
+    const grid=document.querySelector('#team'),dialog=document.querySelector('#detail');
+    team.forEach((member,i)=>{
+      const button=document.createElement('button');button.type='button';button.className='person';
+      const portrait=document.createElement('span');portrait.className='portrait';portrait.style.setProperty('--x',`${member.x*1.2}px`);portrait.style.setProperty('--y',`${member.y*1.2}px`);
+      const img=document.createElement('img');img.src='foto-tim.jpg';img.alt='';img.loading='lazy';portrait.append(img);
+      const number=document.createElement('span');number.className='number';number.textContent=`TIM ${String(i+1).padStart(2,'0')}`;
+      const name=document.createElement('strong');name.textContent=member.nama;
+      const role=document.createElement('small');role.textContent=member.peran;
+      const more=document.createElement('span');more.className='more';more.textContent='Lihat peran & tugas →';
+      button.append(portrait,number,name,role,more);
+      button.addEventListener('click',()=>{document.querySelector('#detail-name').textContent=member.nama;document.querySelector('#detail-role').textContent=member.peran;document.querySelector('#detail-duty').textContent=member.tugas;dialog.showModal()});grid.append(button);
+    });
+    document.querySelector('#close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+  </script>
+</body>
+</html>
